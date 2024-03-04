@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random color generation</title>
+</head>
+
+<body>
+    <div class="container" style="display: flex; align-items: center; gap: 4px; justify-content: center;">
+        <div class="box1" style="height: 60px; width: 60px; border: 2px solid black; "></div>
+        <div class="box2" style="height: 60px; width: 60px; border: 2px solid black; "></div>
+        <div class="box3" style="height: 60px; width: 60px; border: 2px solid black; "></div>
+        <div class="box4" style="height: 60px; width: 60px; border: 2px solid black; "></div>
+        <div class="box5" style="height: 60px; width: 60px; border: 2px solid black; "></div>
+
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <button style="width: 200px; margin: 20px auto;">click here to change color</button>
+    </div>
+
+    <script>
+
+
+        function randomColor() {
+            let hex = '0123456789ABCDEF'
+            let color = '#'
+            for (let i = 0; i < 6; i++) {
+
+                
+                color += hex[Math.floor(Math.random() * 16)];
+
+            }
+            return color;
+        }
+
+        let box1 = document.querySelector('.box1')
+        let box2 = document.querySelector('.box2')
+        let box3 = document.querySelector('.box3')
+        let box4 = document.querySelector('.box4')
+        let box5 = document.querySelector('.box5')
+
+        let button = document.querySelector('button');
+        button.addEventListener('click', (e) => {
+            box1.style.backgroundColor = `${randomColor()}`
+            box2.style.backgroundColor = `${randomColor()}`
+            box3.style.backgroundColor = `${randomColor()}`
+            box4.style.backgroundColor = `${randomColor()}`
+            box5.style.backgroundColor = `${randomColor()}`
+        })
+
+    </script>
+</body>
+
+</html>

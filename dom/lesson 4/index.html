@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="list-container"></ul>
+    <script>
+        let container = document.querySelector('ul');
+        
+        li1 = liItem('li', 'one')
+        li2 = liItem('li', 'two')
+        li3 = liItem('li', 'three')
+        li4 = liItem('li', 'four')
+
+        function liItem(element, content){
+            let li = document.createElement(`${element}`);
+            li.textContent = content
+            li.style.color = 'crimson'
+            li.style.fontFamily = 'sans-serif'
+            li.style.fontSize = '16px'
+
+            return li;
+        }
+
+        container.appendChild(li1)
+        container.appendChild(li2)
+        container.appendChild(li3)
+        container.appendChild(li4)
+    </script>
+</body>
+</html>

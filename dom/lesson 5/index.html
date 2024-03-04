@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: rgb(74, 74, 74); font-family: sans-serif;">
+    <div class="container"
+        style="height: 200px;  background-color: white; margin: 200px auto; border: 1px solid; border-radius: 10px; width: 200px;">
+        <img src="" class="img" src="" style="height: 150px; width: auto; padding: 5px 25px;" alt="">
+        <p class="name" style="margin: -2px auto; margin-left: 25px;"></p>
+
+    </div>
+
+    <script>
+        // FETCH DATA 
+        const xhr = new XMLHttpRequest();
+        const requestURL = 'https://api.github.com/users/Sayeed-Shorif';
+        xhr.open('GET', requestURL);
+
+        let name;
+        let photo;
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    name = data.name;
+                    photo = data.avatar_url;
+                    console.log("Name:", name);
+                    console.log("Photo URL:", photo);
+
+
+                    let img = document.querySelector('.img');
+                    let name2 = document.querySelector('.name');
+                    img.src = `${photo}`
+                    name2.innerHTML = `Name : ${name}`
+                } else {
+                    console.error('Request failed with status:', xhr.status);
+                }
+            }
+        };
+
+        xhr.send();
+
+
+
+
+
+    </script>
+</body>
+
+</html>
